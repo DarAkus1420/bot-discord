@@ -14,7 +14,6 @@ from config import BOT_TOKEN
 bot = commands.Bot(command_prefix='$', description='This is a lolpatch bot')
 
 
-
 @bot.command(name="Suma")
 async def sum(ctx, numOne: int, numTwo: int):
     """
@@ -85,6 +84,11 @@ async def esteban(ctx):
 
 
 # Events
+@bot.event
+async def on_member_update(before, after):
+    if before.name == "DarAkus1420":
+        after.nick = "Hola"
+
 @bot.event
 async def on_ready():
     # await bot.change_presence(activity=discord.Streaming(name="Tu vieja", url="https://www.youtube.com/watch?v=Tup1uJ7DHLk"))
